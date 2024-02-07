@@ -10,11 +10,11 @@ if [ -n "$1" ]; then
   sh -s - server \
   --node-ip $node_ip \
   --node-external-ip $node_ip \
-  --flannel-backend=none
+  --flannel-backend=none \
   --cluster-init
 else
   curl -sfL https://get.k3s.io | \
   sh -s - server \
-  --flannel-backend=none
+  --flannel-backend=none \
   --cluster-init
 fi
