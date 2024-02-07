@@ -5,8 +5,16 @@ build:
 	chmod +x ./get_kubeconfig.sh
 
 init-cluster:
-	@./server_init_cluster.sh $(NODE_IP) && ./get_token.sh
+	./server_init_cluster.sh $(NODE_IP) && ./get_token.sh
 
-kubeconfig:
-	@./get_kubeconfig.sh
+get-token:
+	./get_token.sh
 
+get-kubeconfig:
+	./get_kubeconfig.sh
+
+status-server:
+	systemctl status k3s
+
+status-agent:
+	systemctl status k3s-agent
