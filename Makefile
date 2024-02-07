@@ -5,7 +5,12 @@ build:
 	chmod +x ./get_kubeconfig.sh
 
 init-cluster:
-	./server_init_cluster.sh $(NODE_IP) && ./get_token.sh
+	./server_init_cluster.sh $(NODE_IP) && \
+	./cilium_install.sh && \
+	./get_token.sh
+
+delete-cluster:
+	k3s-killall.sh && k3s-uninstall.sh
 
 get-token:
 	./get_token.sh
