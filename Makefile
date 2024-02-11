@@ -1,9 +1,6 @@
 build:
 # set the permissions for shell scripts
-	chmod +x ./server_init_cluster.sh
-	chmod +x ./get_token.sh
-	chmod +x ./get_kubeconfig.sh
-	chmod +x ./cilium_install.sh
+	chmod +x ./*.sh
 
 init-cluster:
 	./server_init_cluster.sh $(NODE_IP) && \
@@ -24,3 +21,6 @@ status-server:
 
 status-agent:
 	systemctl status k3s-agent
+
+test:
+	./util_test.sh
