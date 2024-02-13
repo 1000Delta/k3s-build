@@ -1,0 +1,15 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: hubble
+  namespace: kube-system
+spec:
+  routes: # [2]
+    - kind: Rule
+      match: Host(`hubble.1000delta.me`)
+      services: # [8]
+        - kind: Service
+          name: hubble-ui
+          namespace: kube-system
+          passHostHeader: true
+          port: 80 # [9]

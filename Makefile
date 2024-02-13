@@ -24,3 +24,6 @@ status-agent:
 
 test:
 	./util_test.sh
+
+gateway:
+	kubectl apply -f ./traefik/ingressroute/
