@@ -1,16 +1,10 @@
-providers:
-  file:
-    # -- Create a file provider
-    enabled: true
-    # -- Allows Traefik to automatically watch for file changes
-    watch: true
-    # -- File content (YAML format, go template supported) (see https://doc.traefik.io/traefik/providers/file/)
-    content: |
-      certificatesResolvers:
-        myresolver:
-          acme:
-            email: your-email@example.com
-            storage: acme.json
-            httpChallenge:
-              # used during the challenge
-              entryPoint: web
+# Configure Traefik static configuration
+# -- Additional arguments to be passed at Traefik's binary
+# All available options available on https://docs.traefik.io/reference/static-configuration/cli/
+## Use curly braces to pass values: `helm install --set="additionalArguments={--providers.kubernetesingress.ingressclass=traefik-internal,--log.level=DEBUG}"`
+additionalArguments:
+  #  - "--providers.kubernetesingress.ingressclass=traefik-internal"
+  #  - "--log.level=DEBUG"
+  - "--certificatesresolvers.myresolver.acme.email=triangledx@outlook.com"
+  - "--certificatesresolvers.myresolver.acme.storage=acme.json"
+  - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
