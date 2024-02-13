@@ -10,7 +10,7 @@ deployment:
     - name: acme-storage
       hostPath:
         path: /root/k3s-build/traefik/acme/acme.json
-        type: File
+        type: FileOrCreate
 
 volumes:
   - name: acme-storage
