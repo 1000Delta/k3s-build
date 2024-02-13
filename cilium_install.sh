@@ -13,3 +13,6 @@ fi
 
 # install cilium to k3s cluster
 cilium install
+
+# enable hubble with ui
+cilium hubble enable --ui
