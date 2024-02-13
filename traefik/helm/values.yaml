@@ -2,16 +2,16 @@
 
 additionalArguments:
   - "--certificatesresolvers.myresolver.acme.email=triangledx@outlook.com"
-  - "--certificatesresolvers.myresolver.acme.storage=/acme/acme.json"
+  - "--certificatesresolvers.myresolver.acme.storage=acme.json"
   - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
 
 deployment:
   additionalVolumes:
     - name: acme-storage
       hostPath:
-        path: /root/k3s-build/traefik/acme
-        type: FileOrCreate
+        path: /root/k3s-build/traefik/acme/acme.json
+        type: File
 
 volumes:
   - name: acme-storage
-    mountPath: /acme
+    mountPath: acme.json
