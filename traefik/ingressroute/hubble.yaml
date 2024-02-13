@@ -4,6 +4,8 @@ metadata:
   name: hubble
   namespace: kube-system
 spec:
+  entryPoints:
+    - websecure
   routes: # [2]
     - kind: Rule
       match: Host(`hubble.1000delta.me`)
@@ -13,3 +15,5 @@ spec:
           namespace: kube-system
           passHostHeader: true
           port: 80 # [9]
+  tls:
+    certResolver: myresolver

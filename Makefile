@@ -25,5 +25,8 @@ status-agent:
 test:
 	./util_test.sh
 
-gateway:
+tf-tls:
+	helm -f ./traefik/helm/values.yaml upgrade -n kube-system --install traefik traefik/traefik
+
+tf-ingressroute:
 	kubectl apply -f ./traefik/ingressroute/

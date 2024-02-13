@@ -5,10 +5,12 @@ metadata:
   namespace: kube-system
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`traefik.1000delta.me`) && (PathPrefix(`/dashboard`) || PathPrefix(`/api`))
       kind: Rule
       services:
         - name: api@internal
           kind: TraefikService
+  tls:
+    certResolver: myresolver
