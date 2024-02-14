@@ -25,11 +25,18 @@ status-agent:
 test:
 	./util_test.sh
 
-tf-init:
+tf-init: tf-acme
 	helm -f ./traefik/helm/values.yaml upgrade -n kube-system --install traefik traefik/traefik
 
 tf-ingressroute:
 	kubectl apply -f ./traefik/ingressroute/
+
+/opt/tf-acme/:
+	mkdir /opt/tf-acme
+
+.PHONY: tf-acme
+tf-acme: /opt/tf-acme/
+	kubectl apply -f ./traefik/acme/acme-storage.yaml
 
 helm-repo:
 	helm repo add traefik https://traefik.github.io/charts

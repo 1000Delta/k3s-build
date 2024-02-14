@@ -5,12 +5,11 @@ additionalArguments:
   - "--certificatesresolvers.myresolver.acme.storage=/acme/acme.json"
   - "--certificatesresolvers.myresolver.acme.httpchallenge.entrypoint=web"
 
-deployment:
-  additionalVolumes:
-    - name: acme-storage
-      emptyDir: {}
+# deployment:
+#   additionalVolumes:
+#     - name: acme-storage
+#       emptyDir: {}
 
 volumes:
   - name: acme-storage
-    mountPath: /acme
-    readOnly: false
+    mountPath: /acme/
