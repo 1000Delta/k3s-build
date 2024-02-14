@@ -16,6 +16,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: acme-storage
+  namespace: kube-system
 spec:
   accessModes:
     - ReadWriteOnce
