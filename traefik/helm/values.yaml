@@ -8,9 +8,7 @@ additionalArguments:
 deployment:
   additionalVolumes:
     - name: acme-storage
-      hostPath:
-        path: /root/k3s-build/traefik/acme.json
-        type: FileOrCreate
+      emptyDir: {}
 
 volumes:
   - name: acme-storage
