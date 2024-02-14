@@ -13,3 +13,4 @@ deployment:
 volumes:
   - name: acme-storage
     mountPath: /acme
+    readOnly: false
